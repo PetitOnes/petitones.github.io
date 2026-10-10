@@ -10,6 +10,5 @@
 | `about_note.txt` | About の小さな注(「完成品ではありません」) |
 | `welcome.txt` | 「ぷちをお迎えする」の前書き |
 | `welcome_ask.txt` | お願いすること(3つ) |
-| `heart_note.txt` | 「なかみ」の下の「できないこと・まだのこと」 |
 
 スマホからは GitHub のページで鉛筆マークを押して直し、「Commit changes」で保存すると、1〜2分で反映されます。

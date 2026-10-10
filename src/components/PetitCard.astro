@@ -3,7 +3,7 @@ const BRAND = 'https://petitones.github.io/petit-brand';
 const { id, name, color, meta, text, poem, sig, photo = true, voice = true } = Astro.props;
 ---
 <div class="card">
-  {photo ? <img class="shot" src={`/img/${id}.jpg`} alt={`${name}`} width="800" height="1000" loading="lazy" /> : <img src={`${BRAND}/assets/face/${id}.svg`} alt={`${name}の顔`} width="120" height="120" loading="lazy" />}
+  {photo ? <img class="shot tall" src={`/img/${id}.jpg`} alt={`${name}`} width="900" height="1200" loading="lazy" /> : <img src={`${BRAND}/assets/face/${id}.svg`} alt={`${name}の顔`} width="120" height="120" loading="lazy" />}
   <h3>{name}</h3>
   <div class="meta"><span class="swatch" style={`background:${color}`}></span>{meta}</div>
   <p>{text}</p>

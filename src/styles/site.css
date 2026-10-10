@@ -78,6 +78,15 @@ h1,h2,h3{font-family:var(--pt-font-round);text-wrap:balance;margin:0;line-height
 .voice button[aria-pressed="true"]{background:var(--pt-teal);color:#fff}
 .voice button[aria-pressed="true"]::before{border:0;width:9px;height:11px;background:currentColor;clip-path:polygon(0 0,35% 0,35% 100%,0 100%,65% 100%,65% 0,100% 0,100% 100%,65% 100%,65% 0)}
 .voice button:focus-visible{outline:3px solid var(--pt-teal-soft);outline-offset:2px}
+/* ふたつの迎え方 */
+.ways{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:28px}
+.way{display:block;background:var(--pt-paper);border:2px solid var(--pt-panel);border-radius:var(--pt-radius-card);padding:20px 22px;text-decoration:none;color:var(--pt-ink);min-width:0}
+.way:hover{border-color:var(--pt-coral-edge)}
+.way .tag{display:inline-block;font-family:var(--pt-font-round);font-weight:700;font-size:.78rem;background:var(--pt-teal-soft);color:var(--pt-teal-ink);border-radius:999px;padding:1px 10px}
+.way h3{font-size:1.3rem;font-weight:800;margin:8px 0 6px}
+.way p{margin:0 0 6px;font-size:.95rem}
+.way .go{display:block;margin-top:10px;font-family:var(--pt-font-round);font-weight:700;color:var(--pt-coral-ink)}
+.sub-h{font-size:1.1rem;font-weight:800;text-align:center;margin:44px 0 0;color:var(--pt-teal-ink);scroll-margin-top:70px}
 /* steps */
 .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:30px;counter-reset:s}
 .step{background:var(--pt-paper);border-radius:var(--pt-radius-card);padding:18px;min-width:0}

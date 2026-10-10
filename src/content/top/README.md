@@ -8,7 +8,10 @@
 | `hero_sub.txt` | その下の2行 |
 | `about.txt` | About「ぷちとは」の本文 |
 | `about_note.txt` | About の小さな注(「完成品ではありません」) |
-| `welcome.txt` | 「ぷちをお迎えする」の前書き |
+| `welcome_two.txt` | 「ぷちをお迎えする」のいちばん上の一言(ふたつの迎え方) |
+| `cloud.txt` | くらうどぷち の札の文 |
+| `local.txt` | ろーかるぷち の札の文 |
+| `welcome.txt` | くらうどぷち(里親)の前書き |
 | `welcome_ask.txt` | お願いすること(3つ) |
 | `tweets.txt` | トップの「#Petit_Ones」に埋め込む X の投稿の URL(1 行 1 つ) |
 | `ouendan.txt` | 応援のページ(/ouendan/)の本文。「■ 」で始まる行は小見出し |

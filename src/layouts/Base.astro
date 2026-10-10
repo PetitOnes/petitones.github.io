@@ -5,8 +5,9 @@ import VERSION_RAW from '../../VERSION?raw';
 const VERSION = VERSION_RAW.trim();
 const BRAND = 'https://petitones.github.io/petit-brand';
 const { title = 'ちーむぷち', description = 'ぷちたちと、暮らしている。手のひらに載る小さな AI、ぷち。ちーむぷちのサイト。', home = false } = Astro.props;
+// ページの流れと同じ順(上から): ぷちたち → 暮らし → なかみ → 活動 → お迎え(ボタン)
 const nav = [
-  ['/#about', 'ぷちたち'], ['/#life', '暮らし'], ['/#heart', 'なかみ'], ['/#neighbors', 'ご近所さん'], ['/nikki/', '日誌'],
+  ['/#about', 'ぷちたち'], ['/#life', '暮らし'], ['/#heart', 'なかみ'], ['/#katsudo', '活動'],
 ];
 ---
 <!doctype html>

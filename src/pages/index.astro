@@ -5,6 +5,7 @@ import PetitCard from '../components/PetitCard.astro';
 import { getCollection } from 'astro:content';
 import { html, lines } from '../lib/copy';
 const BRAND = 'https://petitones.github.io/petit-brand';
+const nikki = (await getCollection('nikki')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()).slice(0, 4);
 const news = (await getCollection('news')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()).slice(0, 5);
 const fmt = (d: Date) => `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
 ---
@@ -73,7 +74,19 @@ const fmt = (d: Date) => `${d.getFullYear()}.${String(d.getMonth() + 1).padStart
     <div class="lead" style="margin-top:28px"><Fragment set:html={html('heart_note', 'note')} /></div>
   </Section>
 
-  <Section id="welcome" en="Welcome" ja="ぷちをお迎えする">
+  <Section id="katsudo" en="Days" ja="活動">
+    <ul class="news">
+      {nikki.map((n) => (
+        <li>
+          <time datetime={n.data.date.toISOString()}>{fmt(n.data.date)}</time>
+          <span><a href={`/nikki/#${n.id}`}>{n.data.title}</a>{n.data.place && <span class="place"> @ {n.data.place}</span>}</span>
+        </li>
+      ))}
+    </ul>
+    <p class="center" style="margin-top:20px"><a class="btn ghost" href="/nikki/">活動日誌をぜんぶ見る</a></p>
+  </Section>
+
+  <Section id="welcome" en="Welcome" ja="ぷちをお迎えする" tone>
     <div class="lead"><Fragment set:html={html('welcome')} /></div>
     <div class="steps">
       <div class="step"><h3>会ってみる</h3><p>交流会や展示で、ぷちに会う。話を聞く。</p></div>
@@ -85,7 +98,7 @@ const fmt = (d: Date) => `${d.getFullYear()}.${String(d.getMonth() + 1).padStart
     <p class="center note">返事は1週間以内に。<a href="/team/">ちーむぷちについて</a></p>
   </Section>
 
-  <Section id="neighbors" en="Neighbors" ja="ご近所さん・応援団" tone>
+  <Section id="neighbors" en="Neighbors" ja="ご近所さん・応援団">
     <div class="grid3">
       <div class="card">
         <h3>ご近所さん</h3>
@@ -105,7 +118,7 @@ const fmt = (d: Date) => `${d.getFullYear()}.${String(d.getMonth() + 1).padStart
     </div>
   </Section>
 
-  <Section id="faq" en="FAQ" ja="よくある質問">
+  <Section id="faq" en="FAQ" ja="よくある質問" tone>
     <div class="faq">
       <details><summary>電池はどれくらい持ちますか</summary><p>体の底に 700mAh の電池がついています。USB をつないだままで大丈夫で、外すと電池で動きます。何時間もつかは、いま測っているところです。少なくなると、自分で眠ります。</p></details>
       <details><summary>Wi-Fi は要りますか</summary><p>要ります。頭脳はクラウドにあるので、家の Wi-Fi(またはスマホのテザリング)につなぎます。設定は里親さんにお願いする、ただ一つの作業です。</p></details>
@@ -116,7 +129,7 @@ const fmt = (d: Date) => `${d.getFullYear()}.${String(d.getMonth() + 1).padStart
     </div>
   </Section>
 
-  <Section id="news" en="News" ja="お知らせ" tone>
+  <Section id="news" en="News" ja="お知らせ">
     <ul class="news">
       {news.map((n) => (
         <li>

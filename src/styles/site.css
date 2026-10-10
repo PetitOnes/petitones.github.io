@@ -95,6 +95,7 @@ h1,h2,h3{font-family:var(--pt-font-round);text-wrap:balance;margin:0;line-height
 .news li{display:grid;grid-template-columns:7.5em 1fr;gap:12px;padding:10px 0;border-top:1px solid var(--pt-panel);font-size:.95rem}
 .news li:last-child{border-bottom:1px solid var(--pt-panel)}
 .news time{font-family:var(--pt-font-mono);color:var(--pt-ink-soft);font-size:.85rem}
+.news .place{color:var(--pt-ink-soft);font-size:.85rem}
 .news .v{font-family:var(--pt-font-mono);font-size:.8rem;color:var(--pt-teal-ink);background:var(--pt-teal-soft);border-radius:6px;padding:0 6px;margin-left:6px}
 @media (max-width:480px){.news li{grid-template-columns:1fr;gap:2px}}
 /* prose (下層) */

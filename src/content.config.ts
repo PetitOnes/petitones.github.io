@@ -1,15 +1,5 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
-// お知らせ: src/content/news/<yyyy-mm-dd>-<slug>.md が 1 件
-const news = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/news' }),
-  schema: z.object({
-    title: z.string(),
-    date: z.coerce.date(),
-    version: z.string().optional(), // 配信なら版の名前(cloud-0.2.1 など)
-    link: z.string().url().optional(),
-  }),
-});
 // 活動日誌: src/content/nikki/<yyyy-mm-dd>-<slug>.md が 1 日
 const nikki = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/nikki' }),

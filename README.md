@@ -15,4 +15,4 @@ npm run build    # dist/
 
 **トップの文を直す**: `src/content/top/*.txt`(改行はそのまま改行、空行で段落)。一覧は `src/content/top/README.md`。GitHub の画面の鉛筆マークで直して保存すれば反映される。
 
-直すときは PR で(文の直しは main に直接でもよい)。トップは長い1枚(ぷちたち → 暮らし → なかみ → 活動 → お迎え → ご近所さん → FAQ)、下層は `/satooya/` `/petit/` `/nikki/` `/team/` `/make/` の5枚。
+直すときは PR で(文の直しは main に直接でもよい)。トップは長い1枚(ぷちたち → 暮らし → なかみ → 活動 → お迎え → ご近所さん → FAQ)、下層は `/satooya/` `/petit/` `/nikki/` `/ouendan/` `/team/` `/make/` の6枚。

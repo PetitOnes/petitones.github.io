@@ -1,0 +1,23 @@
+---
+import Base from '../layouts/Base.astro';
+import { paras } from '../lib/copy';
+const FORM = 'https://forms.gle/6Psnr77FMF6yAjBu7';
+const esc = (t: string) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+// 「■ 」で始まる行は小見出し、それ以外は段落(改行はそのまま)
+const blocks = paras('ouendan').map((p) =>
+  p[0].startsWith('■') ? { h: p[0].replace(/^■\s*/, ''), lines: p.slice(1) } : { h: null, lines: p },
+);
+---
+<Base title="ぷちを応援する" description="ぷちを応援する方法。会いに来る、人に話す、企業・団体の方へ、スポンサー支援について。">
+  <div class="sec"><div class="wrap prose">
+    <h1>ぷちを応援する</h1>
+    {blocks.map((b) => (
+      <>
+        {b.h && <h2>{b.h}</h2>}
+        {b.lines.length > 0 && <p set:html={b.lines.map(esc).join('<br />')} />}
+      </>
+    ))}
+    <p style="margin-top:32px"><a class="btn" href={FORM}>相談する(フォーム)</a></p>
+    <p class="note">読むのは ちーむぷちの2人だけ。1週間以内に返事をします。</p>
+  </div></div>
+</Base>

@@ -9,6 +9,7 @@ permissions:
   pages: write
   id-token: write
 concurrency: { group: pages, cancel-in-progress: false }
+# deploy は環境 github-pages の「必須レビュー」で止まる。ありさんが Actions で Approve すると公開される
 jobs:
   build:
     runs-on: ubuntu-latest

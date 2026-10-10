@@ -4,6 +4,12 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      mode:
+        description: "site = 本物のサイト / holding = 準備中の1枚"
+        type: choice
+        options: [site, holding]
+        default: site
 permissions:
   contents: write
   pages: write
@@ -26,9 +32,12 @@ jobs:
           echo "version=$V" >> "$GITHUB_OUTPUT"
         id: ver
       - run: npm run build
+      - if: github.event.inputs.mode == 'holding'
+        run: rm -rf dist && cp -r holding dist
       - uses: actions/upload-pages-artifact@v3
         with: { path: dist }
       - name: tag + release
+        if: github.event.inputs.mode != 'holding'
         env: { GH_TOKEN: "${{ github.token }}", V: "${{ steps.ver.outputs.version }}" }
         run: |
           if git ls-remote --exit-code --tags origin "refs/tags/v$V" >/dev/null 2>&1; then echo "v$V はもうある"; exit 0; fi

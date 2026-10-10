@@ -21,8 +21,8 @@ const nav = [
   <meta property="og:site_name" content="ちーむぷち" />
   <meta property="og:description" content={description} />
   <meta property="og:image" content="https://petitones.github.io/img/hero.jpg" />
+  <link rel="icon" href="/img/face.svg" type="image/svg+xml" />
   <link rel="icon" href="/img/icon-32.png" sizes="32x32" type="image/png" />
-  <link rel="icon" href="/img/icon-512.png" sizes="512x512" type="image/png" />
   <link rel="apple-touch-icon" href="/img/icon-180.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -32,7 +32,7 @@ const nav = [
 <body>
   <header class="hd">
     <div class="wrap">
-      <a class="logo" href="/"><img src="/img/icon-180.png" alt="" width="30" height="30" />ちーむぷち</a>
+      <a class="logo" href="/"><img src="/img/face.svg" alt="" width="30" height="30" />ちーむぷち</a>
       <button class="menu" id="menu" aria-expanded="false" aria-controls="nav">メニュー</button>
       <nav id="nav">
         {nav.map(([href, label]) => <a href={href}>{label}</a>)}
@@ -44,7 +44,7 @@ const nav = [
   <footer class="ft">
     <div class="wrap">
       <div class="ft-brand">
-        <img src="/img/icon-180.png" alt="" width="40" height="40" />
+        <img src="/img/face.svg" alt="" width="40" height="40" />
         <div><strong>ちーむぷち</strong><br /><span>ぷちは PetitOnes(ありさん)のプロジェクト。里親の運営は ちーむぷち(ありさん・なぎさん)。</span></div>
       </div>
       <div class="ft-cols">

@@ -60,6 +60,14 @@ const nav = [
     const b = document.getElementById('menu'), n = document.getElementById('nav');
     b?.addEventListener('click', () => { const o = n.classList.toggle('open'); b.setAttribute('aria-expanded', String(o)); });
     n?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => n.classList.remove('open')));
+    // ぷちの声: ボタンを押すと再生、もう一度で止まる。同時に鳴るのは1つ
+    let audio = null, playing = null;
+    const stop = () => { if (audio) { audio.pause(); audio.currentTime = 0; } if (playing) playing.setAttribute('aria-pressed', 'false'); playing = null; };
+    document.querySelectorAll('.voice button').forEach(b => b.addEventListener('click', () => {
+      if (playing === b) { stop(); return; }
+      stop(); audio = new Audio(b.dataset.src); playing = b; b.setAttribute('aria-pressed', 'true');
+      audio.addEventListener('ended', stop); audio.play().catch(stop);
+    }));
   </script>
 </body>
 </html>

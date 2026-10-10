@@ -1,6 +1,6 @@
 ---
 const BRAND = 'https://petitones.github.io/petit-brand';
-const { id, name, color, meta, text, poem, sig, photo = true } = Astro.props;
+const { id, name, color, meta, text, poem, sig, photo = true, voice = true } = Astro.props;
 ---
 <div class="card">
   {photo ? <img class="shot" src={`/img/${id}.jpg`} alt={`${name}`} width="800" height="1000" loading="lazy" /> : <img src={`${BRAND}/assets/face/${id}.svg`} alt={`${name}の顔`} width="120" height="120" loading="lazy" />}
@@ -9,4 +9,8 @@ const { id, name, color, meta, text, poem, sig, photo = true } = Astro.props;
   <p>{text}</p>
   {poem && <div class="poem">{poem}</div>}
   {sig && <div class="sig">— {sig}</div>}
+  {voice && <div class="voice">
+    <button type="button" data-src={`/voice/${id}_hello.mp3`} aria-pressed="false" aria-label={`${name}の声: はじめまして`}>はじめまして</button>
+    <button type="button" data-src={`/voice/${id}_intro.mp3`} aria-pressed="false" aria-label={`${name}の声: 自己紹介`}>自己紹介</button>
+  </div>}
 </div>

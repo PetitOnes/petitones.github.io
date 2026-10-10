@@ -1,4 +1,6 @@
 /* 色・書体の値は petit-brand の tokens.css(--pt-*)。ここはサイトの組み方だけ */
+/* ひとこと専用の手書き: はる手書きフォント v1.20(作者: はる。Web 埋め込みは個人・商用とも無料。ひとことの文字だけ切り出し) */
+@font-face{font-family:"HaruTegaki";src:url("/font/haru-hero.woff") format("woff");font-display:swap;unicode-range:U+3001-3002,U+3041-3096}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:64px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
@@ -41,11 +43,12 @@ h1,h2,h3{font-family:var(--pt-font-round);text-wrap:balance;margin:0;line-height
 .center{text-align:center}
 /* hero */
 .hero{padding-block:0}
-.hero .photo{position:relative;aspect-ratio:16/8.5;max-height:560px;overflow:hidden;background:var(--pt-panel)}
-.hero .photo img{width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block}
+.hero .photo{position:relative;aspect-ratio:1200/518;max-height:520px;overflow:hidden;background:var(--pt-panel)}
+.hero .photo img{width:100%;height:100%;object-fit:cover;object-position:center 55%;display:block}
 .hero .wrap{display:grid;grid-template-columns:1fr;gap:10px;padding-block:40px 36px;text-align:center}
 .hero h1 br{display:none}
 .hero h1{font-size:clamp(2rem,6vw,3.1rem);font-weight:800;line-height:1.3}
+.hero h1.tegaki{font-family:"HaruTegaki",var(--pt-font-round);font-weight:400;font-size:clamp(2.4rem,7.5vw,4rem);letter-spacing:.04em;line-height:1.35}
 .hero .sub{margin:14px 0 0;font-size:1.05rem;color:var(--pt-ink-soft)}
 .hero .by{margin-top:22px;font-size:.85rem;color:var(--pt-ink-soft)}
 .hero .sub br{display:none}
@@ -58,7 +61,7 @@ h1,h2,h3{font-family:var(--pt-font-round);text-wrap:balance;margin:0;line-height
 .sec.tone .card{border-color:transparent}
 .card img{width:120px;height:120px;display:block;margin:0 auto 8px}
 .card img.photo{width:100%;height:220px;object-fit:cover;border-radius:10px;margin:0 0 12px}
-.card .shot{width:calc(100% + 40px);margin:-20px -20px 14px;height:220px;object-fit:cover;object-position:center 38%;border-radius:var(--pt-radius-card) var(--pt-radius-card) 0 0;display:block}
+.card .shot{width:calc(100% + 40px);margin:-20px -20px 14px;height:240px;object-fit:cover;object-position:center 45%;border-radius:var(--pt-radius-card) var(--pt-radius-card) 0 0;display:block}
 .card h3{font-size:1.15rem;font-weight:800;text-align:center}
 .card.left h3{text-align:left}
 .card .meta{text-align:center;font-size:.8rem;color:var(--pt-ink-soft);font-family:var(--pt-font-mono);margin:2px 0 10px}
@@ -66,6 +69,13 @@ h1,h2,h3{font-family:var(--pt-font-round);text-wrap:balance;margin:0;line-height
 .card .poem{font-family:var(--pt-font-serif);white-space:pre-line;font-size:.92rem;margin-top:12px;color:var(--pt-ink-card);border-left:3px solid var(--pt-panel);padding-left:12px}
 .card .sig{text-align:right;font-size:.8rem;color:var(--pt-ink-soft)}
 .swatch{display:inline-block;width:.8em;height:.8em;border-radius:50%;vertical-align:-1px;margin-right:4px;border:1px solid rgba(0,0,0,.08)}
+/* voice */
+.voice{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:14px}
+.voice button{font:inherit;font-family:var(--pt-font-round);font-weight:700;font-size:.85rem;background:var(--pt-teal-soft);color:var(--pt-teal-ink);border:0;border-radius:999px;padding:7px 14px 7px 12px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;min-height:36px}
+.voice button::before{content:"";width:0;height:0;border-left:9px solid currentColor;border-top:6px solid transparent;border-bottom:6px solid transparent}
+.voice button[aria-pressed="true"]{background:var(--pt-teal);color:#fff}
+.voice button[aria-pressed="true"]::before{border:0;width:9px;height:11px;background:currentColor;clip-path:polygon(0 0,35% 0,35% 100%,0 100%,65% 100%,65% 0,100% 0,100% 100%,65% 100%,65% 0)}
+.voice button:focus-visible{outline:3px solid var(--pt-teal-soft);outline-offset:2px}
 /* steps */
 .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:30px;counter-reset:s}
 .step{background:var(--pt-paper);border-radius:var(--pt-radius-card);padding:18px;min-width:0}

@@ -58,7 +58,7 @@ h1,h2,h3{font-family:var(--pt-font-round);text-wrap:balance;margin:0;line-height
 .sec.tone .card{border-color:transparent}
 .card img{width:120px;height:120px;display:block;margin:0 auto 8px}
 .card img.photo{width:100%;height:220px;object-fit:cover;border-radius:10px;margin:0 0 12px}
-.card .shot{width:calc(100% + 40px);margin:-20px -20px 14px;height:200px;object-fit:cover;border-radius:var(--pt-radius-card) var(--pt-radius-card) 0 0;display:block}
+.card .shot{width:calc(100% + 40px);margin:-20px -20px 14px;height:220px;object-fit:cover;object-position:center 38%;border-radius:var(--pt-radius-card) var(--pt-radius-card) 0 0;display:block}
 .card h3{font-size:1.15rem;font-weight:800;text-align:center}
 .card.left h3{text-align:left}
 .card .meta{text-align:center;font-size:.8rem;color:var(--pt-ink-soft);font-family:var(--pt-font-mono);margin:2px 0 10px}

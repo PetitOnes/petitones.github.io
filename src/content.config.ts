@@ -10,4 +10,15 @@ const news = defineCollection({
     link: z.string().url().optional(),
   }),
 });
-export const collections = { news };
+// 活動日誌: src/content/nikki/<yyyy-mm-dd>-<slug>.md が 1 日
+const nikki = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/nikki' }),
+  schema: z.object({
+    title: z.string(),
+    date: z.coerce.date(),
+    place: z.string().optional(),
+    photo: z.string().optional(), // /img/... (任意)
+    who: z.string().optional(),   // ありさん / なぎさん / 2人 / ぷちたち
+  }),
+});
+export const collections = { news, nikki };

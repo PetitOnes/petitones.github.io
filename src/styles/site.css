@@ -123,3 +123,13 @@ h1,h2,h3{font-family:var(--pt-font-round);text-wrap:balance;margin:0;line-height
 .ft-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:18px;margin-top:28px;padding-top:24px;border-top:1px solid rgba(255,255,255,.14)}
 .ft-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-top:28px;padding-top:16px;border-top:1px solid rgba(255,255,255,.14);color:#B9AE9F;font-size:.8rem}
 .ft .ver{font-family:var(--pt-font-mono)}
+/* 活動日誌 */
+.nikki{margin-top:24px}
+.entry{border-top:1px solid var(--pt-panel);padding:22px 0 26px}
+.entry:last-child{border-bottom:1px solid var(--pt-panel)}
+.entry .when{display:flex;gap:10px;flex-wrap:wrap;align-items:baseline;font-size:.85rem;color:var(--pt-ink-soft);font-family:var(--pt-font-round)}
+.entry .place::before{content:"@ "}
+.entry .who{background:var(--pt-teal-soft);color:var(--pt-teal-ink);border-radius:999px;padding:0 9px;font-size:.78rem}
+.entry h2{margin:4px 0 8px;font-size:1.2rem;color:var(--pt-ink)}
+.entry .pic{width:100%;max-width:520px;border-radius:var(--pt-radius-card);aspect-ratio:3/2;object-fit:cover;margin:6px 0 10px;display:block}
+.entry p{margin:0 0 6px}

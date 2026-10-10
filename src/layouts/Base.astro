@@ -33,7 +33,15 @@ const nav = [
 <body>
   <header class="hd">
     <div class="wrap">
-      <a class="logo" href="/"><img src="/img/face.svg" alt="" width="30" height="30" />ちーむぷち</a>
+      <a class="logo" href="/"><svg class="face" viewBox="0 0 100 100" width="30" height="30" aria-hidden="true">
+        <rect width="100" height="100" rx="20" fill="#A7ACB1"/><rect x="5" y="5" width="90" height="90" rx="16" fill="#1B1B1D"/><rect x="11" y="13" width="78" height="58" rx="4" fill="#AEE0F4"/>
+        <circle cx="50" cy="84" r="6.5" fill="#2A2A2D"/><circle cx="50" cy="84" r="6.5" fill="none" stroke="#B4603A" stroke-width="1.4"/>
+        <g fill="#2BA8DC" transform="translate(11 13) scale(0.24375 0.241667)">
+          <ellipse cx="160" cy="121" rx="14" ry="6"/>
+          <ellipse class="eye l" cx="75" cy="90" rx="22" ry="32" transform="rotate(20 75 90)"/>
+          <ellipse class="eye r" cx="245" cy="90" rx="22" ry="32" transform="rotate(-20 245 90)"/>
+          <circle cx="142" cy="165" r="20"/><circle cx="178" cy="165" r="20"/><polygon points="130,175 190,175 160,210"/>
+        </g></svg>ちーむぷち</a>
       <button class="menu" id="menu" aria-expanded="false" aria-controls="nav">メニュー</button>
       <nav id="nav">
         {nav.map(([href, label]) => <a href={href}>{label}</a>)}
@@ -60,6 +68,12 @@ const nav = [
     const b = document.getElementById('menu'), n = document.getElementById('nav');
     b?.addEventListener('click', () => { const o = n.classList.toggle('open'); b.setAttribute('aria-expanded', String(o)); });
     n?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => n.classList.remove('open')));
+    // 節のふわっと表示(動きを減らす設定なら何もしない)
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+      document.documentElement.classList.add('anim');
+      const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -12% 0px' });
+      document.querySelectorAll('.sec .wrap > *, .hero .wrap > *').forEach((el, i) => { el.style.setProperty('--d', `${(i % 6) * 70}ms`); io.observe(el); });
+    }
     // ぷちの声: ボタンを押すと再生、もう一度で止まる。同時に鳴るのは1つ
     let audio = null, playing = null;
     const stop = () => { if (audio) { audio.pause(); audio.currentTime = 0; } if (playing) playing.setAttribute('aria-pressed', 'false'); playing = null; };

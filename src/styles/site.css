@@ -150,3 +150,29 @@ h1,h2,h3{font-family:var(--pt-font-round);text-wrap:balance;margin:0;line-height
 .tweets{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-top:24px;justify-items:center}
 .tweets blockquote.twitter-tweet{margin:0 !important;max-width:100%;width:100%;min-height:80px;border:1.5px solid var(--pt-panel);border-radius:var(--pt-radius-card);padding:16px 18px;display:grid;place-items:center;font-family:var(--pt-font-round);font-weight:700}
 .tweets blockquote.twitter-tweet a{color:var(--pt-teal-ink)}
+
+/* ── 動き ───────────────────────────────── */
+/* ヘッダの顔: ときどき瞬き、hover でウインク */
+.hd .logo .face .eye{transform-box:fill-box;transform-origin:center;animation:blink 6s infinite}
+.hd .logo .face .eye.r{animation-delay:.05s}
+@keyframes blink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.12)}}
+.hd .logo:hover .face .eye.r{animation:none;transform:scaleY(.1)}
+/* 節のふわっと表示(html.anim のときだけ。JS 無しは常に表示) */
+html.anim .sec .wrap > *, html.anim .hero .wrap > *{opacity:0;transform:translateY(14px);transition:opacity .6s ease var(--d,0ms),transform .6s ease var(--d,0ms)}
+html.anim .sec .wrap > *.in, html.anim .hero .wrap > *.in{opacity:1;transform:none}
+/* ひとこと: 1行ずつ */
+html.anim .hero h1.tegaki.in{animation:none}
+/* 札の写真: hover でふわっと寄る */
+.card{transition:transform .25s ease,box-shadow .25s ease}
+.card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(58,50,45,.08)}
+.card .shot{transition:transform .5s ease}
+.card:hover .shot{transform:scale(1.03)}
+.way{transition:transform .25s ease,border-color .25s ease}
+.way:hover{transform:translateY(-3px)}
+/* 声のボタン: 鳴っているあいだ脈打つ */
+.voice button[aria-pressed="true"]{animation:pulse 1.2s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(46,131,123,.35)}50%{box-shadow:0 0 0 8px rgba(46,131,123,0)}}
+/* 3色の帯: ゆっくり流れる */
+.band{background-size:200% 100%;animation:band 8s linear infinite}
+@keyframes band{to{background-position:-200% 0}}
+@media (prefers-reduced-motion:reduce){.hd .logo .face .eye,.voice button,.band,.card,.card .shot,.way{animation:none !important;transition:none !important}}

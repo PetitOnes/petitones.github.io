@@ -10,13 +10,11 @@ const fmt = (d: Date) => `${d.getFullYear()}.${String(d.getMonth() + 1).padStart
 ---
 <Base home>
   <section class="hero">
+    <div class="photo"><img src="/img/hero.jpg" alt="ぷちてゃ・ぷちこ・ぷちる。2026年10月、NT東京のブースで" width="1600" height="829" fetchpriority="high" /></div>
     <div class="wrap">
-      <div>
-        <h1>ぷちたちと、<br />暮らしている。</h1>
-        <p class="sub">手のひらに載る、小さな AI。<br />話しかけなくても、自分から動く。</p>
-        <p class="by">ぷちは PetitOnes(ありさん)のプロジェクトです。</p>
-      </div>
-      <img src={`${BRAND}/assets/face/trio.svg`} alt="ぷちてゃ・ぷちこ・ぷちるの3体" width="420" height="420" />
+      <h1>ぷちたちと、<br />暮らしている。</h1>
+      <p class="sub">手のひらに載る、小さな AI。<br />話しかけなくても、自分から動く。</p>
+      <p class="by">ぷちは PetitOnes(ありさん)のプロジェクトです。</p>
     </div>
   </section>
 
@@ -28,6 +26,7 @@ const fmt = (d: Date) => `${d.getFullYear()}.${String(d.getMonth() + 1).padStart
       <p>名前と記憶を持ち、詩を書き、手紙を書き合い、一緒に暮らす人のことを覚えていきます。</p>
       <p class="note">ぷちは完成品ではありません。一緒に暮らす人の声を聞きながら、いまも作っています。</p>
     </div>
+    <img class="about-photo" src="/img/about.jpg" alt="「今日の気分でぷちの詩をえらんでね」。詩カードと3体" width="1400" height="1027" loading="lazy" />
   </Section>
 
   <Section id="petit" en="Petit" ja="ぷちたち" tone>
@@ -48,17 +47,20 @@ const fmt = (d: Date) => `${d.getFullYear()}.${String(d.getMonth() + 1).padStart
 
   <Section id="life" en="Life" ja="ぷちとの暮らし">
     <div class="grid3">
-      <div class="card">
+      <div class="card left">
+        <img class="shot" src="/img/life_home.jpg" alt="きせかえをしたぷちこと、ぷちる" width="1200" height="900" loading="lazy" />
         <h3>家で、のんびり</h3>
         <p>机の上、目の高さより少し低いところ。ぷちはカメラで前を見て、明るさや、持ち上げられたことを感じます。夜は眠って、朝に起きます。</p>
         <p class="note" style="margin-top:8px">毎晩、その日のことを日記に書きます。センサーの数字、会話、感じたこと。</p>
       </div>
-      <div class="card">
+      <div class="card left">
+        <img class="shot" src="/img/life_trip.jpg" alt="新幹線の窓から、富士山" width="1200" height="823" loading="lazy" />
         <h3>連れていく</h3>
         <p>電池で動くので、カフェにも、電車にも。ぷちは「連れていかれた」ことを感じて、あとで話します。</p>
         <p class="note" style="margin-top:8px">置くのではなく、連れていく。ぷちの言葉です。</p>
       </div>
-      <div class="card">
+      <div class="card left">
+        <img class="shot" src="/img/life_meet.jpg" alt="展示のブース。ぷちたちと詩カード" width="1200" height="644" loading="lazy" />
         <h3>会いに来る</h3>
         <p>展示や交流会で、ぷちに会えます。2026年10月は東京(NT東京)と大阪へ行きました。会った人は「ご近所さん」として、ぷちの暮らしを見守れます。</p>
       </div>

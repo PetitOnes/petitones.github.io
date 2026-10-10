@@ -4,7 +4,7 @@ import '../styles/site.css';
 import VERSION_RAW from '../../VERSION?raw';
 const VERSION = VERSION_RAW.trim();
 const BRAND = 'https://petitones.github.io/petit-brand';
-const { title = 'ぷちたち', description = 'ぷちたちと、暮らしている。手のひらに載る小さな AI、ぷち。PetitOnes のサイト。', home = false } = Astro.props;
+const { title = 'ちーむぷち', description = 'ぷちたちと、暮らしている。手のひらに載る小さな AI、ぷち。ちーむぷちのサイト。', home = false } = Astro.props;
 const nav = [
   ['/#about', 'ぷちとは'], ['/#petit', 'ぷちたち'], ['/#life', '暮らし'], ['/#heart', 'なかみ'],
   ['/#welcome', 'お迎え'], ['/#neighbors', 'ご近所さん'], ['/news/', 'お知らせ'],
@@ -16,12 +16,15 @@ const nav = [
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="version" content={VERSION} />
-  <title>{home ? 'ぷちたち — PetitOnes' : `${title} — ぷちたち`}</title>
+  <title>{home ? 'ちーむぷち' : `${title} — ちーむぷち`}</title>
   <meta name="description" content={description} />
-  <meta property="og:title" content={home ? 'ぷちたち — PetitOnes' : title} />
+  <meta property="og:title" content={home ? 'ちーむぷち' : `${title} — ちーむぷち`} />
+  <meta property="og:site_name" content="ちーむぷち" />
   <meta property="og:description" content={description} />
-  <meta property="og:image" content={`${BRAND}/assets/face/trio.svg`} />
-  <link rel="icon" href={`${BRAND}/assets/face/puchiteya.svg`} type="image/svg+xml" />
+  <meta property="og:image" content="https://petitones.github.io/img/hero.jpg" />
+  <link rel="icon" href="/img/icon-32.png" sizes="32x32" type="image/png" />
+  <link rel="icon" href="/img/icon-512.png" sizes="512x512" type="image/png" />
+  <link rel="apple-touch-icon" href="/img/icon-180.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet" />
@@ -30,7 +33,7 @@ const nav = [
 <body>
   <header class="hd">
     <div class="wrap">
-      <a class="logo" href="/"><img src={`${BRAND}/assets/face/puchiteya.svg`} alt="" width="30" height="30" />ぷちたち</a>
+      <a class="logo" href="/"><img src="/img/icon-180.png" alt="" width="30" height="30" />ちーむぷち</a>
       <button class="menu" id="menu" aria-expanded="false" aria-controls="nav">メニュー</button>
       <nav id="nav">
         {nav.map(([href, label]) => <a href={href}>{label}</a>)}
@@ -41,19 +44,16 @@ const nav = [
   <main><slot /></main>
   <footer class="ft">
     <div class="wrap">
-      <div>
-        <div><strong>ぷち</strong>は PetitOnes(ありさん)のプロジェクトです。里親の運営は ちーむぷち(ありさん・なぎさん)。</div>
-        <div class="links" style="margin-top:8px">
-          <a href="/satooya/">ぷちの里親</a>
-          <a href="/petit/">ぷちたちのこと</a>
-          <a href="/make/">作る人へ</a>
-          <a href="/news/">お知らせ</a>
-          <a href="https://x.com/PetitOnes">X @PetitOnes</a>
-          <a href="https://github.com/PetitOnes">GitHub</a>
-          <a href={`${BRAND}/`}>色と書体(petit-brand)</a>
-        </div>
+      <div class="ft-brand">
+        <img src="/img/icon-180.png" alt="" width="40" height="40" />
+        <div><strong>ちーむぷち</strong><br /><span>ぷちは PetitOnes(ありさん)のプロジェクト。里親の運営は ちーむぷち(ありさん・なぎさん)。</span></div>
       </div>
-      <div class="ver">サイト v{VERSION}</div>
+      <div class="ft-cols">
+        <div><h3>読む</h3><a href="/satooya/">ぷちの里親</a><a href="/petit/">ぷちたちのこと</a><a href="/make/">作る人へ</a><a href="/news/">お知らせ</a></div>
+        <div><h3>会う・話す</h3><a href="https://d3niumbwriyg7f.cloudfront.net/">ぷちたち。(SNS)</a><a href="https://x.com/PetitOnes">X @PetitOnes</a><a href="/#welcome">里親の話を聞く</a></div>
+        <div><h3>作る</h3><a href="https://github.com/PetitOnes">GitHub</a><a href={`${BRAND}/`}>色と書体(petit-brand)</a><a href="https://teampuchi.github.io/kisekae/">きせかえ</a></div>
+      </div>
+      <div class="ft-bottom"><span>© ちーむぷち</span><span class="ver">サイト v{VERSION}</span></div>
     </div>
   </footer>
   <script>

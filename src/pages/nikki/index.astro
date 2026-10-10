@@ -8,14 +8,15 @@ const rendered = await Promise.all(items.map(async (n) => ({ n, Content: (await 
 <Base title="活動日誌" description="ちーむぷちの活動日誌。展示、発表、合宿、ぷちたちの日々。">
   <div class="sec"><div class="wrap prose">
     <h1>活動日誌</h1>
-    <p class="note">ちーむぷちと、ぷちたちの日々。新しいものが上。お知らせ(配信・告知)は<a href="/news/">こちら</a>。</p>
+    <p class="note">ちーむぷちと、ぷちたちの日々。配信やお知らせもここに。新しいものが上。</p>
     <div class="nikki">
     {rendered.map(({ n, Content }) => (
       <article id={n.id} class="entry">
-        <div class="when"><time datetime={n.data.date.toISOString()}>{fmt(n.data.date)}</time>{n.data.place && <span class="place">{n.data.place}</span>}{n.data.who && <span class="who">{n.data.who}</span>}</div>
+        <div class="when"><time datetime={n.data.date.toISOString()}>{fmt(n.data.date)}</time>{n.data.place && <span class="place">{n.data.place}</span>}{n.data.who && <span class="who">{n.data.who}</span>}{n.data.version && <span class="v">{n.data.version}</span>}</div>
         <h2>{n.data.title}</h2>
         {n.data.photo && <img src={n.data.photo} alt="" loading="lazy" class="pic" />}
         <Content />
+        {n.data.link && <p><a href={n.data.link}>くわしく</a></p>}
       </article>
     ))}
     </div>

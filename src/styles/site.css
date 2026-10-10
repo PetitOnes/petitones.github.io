@@ -133,6 +133,7 @@ h1,h2,h3{font-family:var(--pt-font-round);text-wrap:balance;margin:0;line-height
 .entry .when{display:flex;gap:10px;flex-wrap:wrap;align-items:baseline;font-size:.85rem;color:var(--pt-ink-soft);font-family:var(--pt-font-round)}
 .entry .place::before{content:"@ "}
 .entry .who{background:var(--pt-teal-soft);color:var(--pt-teal-ink);border-radius:999px;padding:0 9px;font-size:.78rem}
+.entry .v{font-family:var(--pt-font-mono);font-size:.78rem;color:var(--pt-ink-soft)}
 .entry h2{margin:4px 0 8px;font-size:1.2rem;color:var(--pt-ink)}
 .entry .pic{width:100%;max-width:520px;border-radius:var(--pt-radius-card);aspect-ratio:3/2;object-fit:cover;margin:6px 0 10px;display:block}
 .entry p{margin:0 0 6px}

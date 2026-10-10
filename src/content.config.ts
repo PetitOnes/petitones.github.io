@@ -19,6 +19,8 @@ const nikki = defineCollection({
     place: z.string().optional(),
     photo: z.string().optional(), // /img/... (任意)
     who: z.string().optional(),   // ありさん / なぎさん / 2人 / ぷちたち
+    version: z.string().optional(), // 配信なら版の名前(cloud-0.2.1 など)
+    link: z.string().url().optional(),
   }),
 });
-export const collections = { news, nikki };
+export const collections = { nikki };

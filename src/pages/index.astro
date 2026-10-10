@@ -6,7 +6,6 @@ import { getCollection } from 'astro:content';
 import { html, lines } from '../lib/copy';
 const BRAND = 'https://petitones.github.io/petit-brand';
 const nikki = (await getCollection('nikki')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()).slice(0, 4);
-const news = (await getCollection('news')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()).slice(0, 5);
 const fmt = (d: Date) => `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
 ---
 <Base home>
@@ -128,15 +127,4 @@ const fmt = (d: Date) => `${d.getFullYear()}.${String(d.getMonth() + 1).padStart
     </div>
   </Section>
 
-  <Section id="news" en="News" ja="お知らせ">
-    <ul class="news">
-      {news.map((n) => (
-        <li>
-          <time datetime={n.data.date.toISOString()}>{fmt(n.data.date)}</time>
-          <span>{n.data.link ? <a href={n.data.link}>{n.data.title}</a> : n.data.title}{n.data.version && <span class="v">{n.data.version}</span>}</span>
-        </li>
-      ))}
-    </ul>
-    <p class="center" style="margin-top:20px"><a class="btn ghost" href="/news/">すべて見る</a></p>
-  </Section>
 </Base>

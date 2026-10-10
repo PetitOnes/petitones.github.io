@@ -1,0 +1,13 @@
+---
+// X の投稿の埋め込み(公式の widgets.js)。URL は src/content/top/tweets.txt。無ければ何も出さない
+import raw from '../content/top/tweets.txt?raw';
+const urls = raw.split('\n').map((l) => l.trim()).filter((l) => l && !l.startsWith('#') && /^https:\/\/(x|twitter)\.com\/[A-Za-z0-9_]+\/status\/\d+/.test(l));
+---
+{urls.length > 0 && (
+  <div class="tweets">
+    {urls.map((u) => (
+      <blockquote class="twitter-tweet" data-lang="ja" data-dnt="true"><a href={u}>{u}</a></blockquote>
+    ))}
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  </div>
+)}

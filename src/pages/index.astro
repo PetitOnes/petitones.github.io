@@ -4,6 +4,7 @@ import Section from '../components/Section.astro';
 import PetitCard from '../components/PetitCard.astro';
 import { getCollection } from 'astro:content';
 import { html, lines } from '../lib/copy';
+import Tweets from '../components/Tweets.astro';
 const BRAND = 'https://petitones.github.io/petit-brand';
 const nikki = (await getCollection('nikki')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()).slice(0, 4);
 const fmt = (d: Date) => `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
@@ -114,6 +115,11 @@ const fmt = (d: Date) => `${d.getFullYear()}.${String(d.getMonth() + 1).padStart
         <p>X で、ぷちたちの日々を書いています。<a href="https://x.com/PetitOnes">@PetitOnes</a>。会ったときの写真は、このタグで。</p>
       </div>
     </div>
+  </Section>
+
+  <Section id="voices" en="Voices" ja="#Petit_Ones">
+    <div class="lead"><p>X で、ぷちたちの日々を書いています。<a href="https://x.com/PetitOnes">@PetitOnes</a></p></div>
+    <Tweets />
   </Section>
 
   <Section id="faq" en="FAQ" ja="よくある質問" tone>

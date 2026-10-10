@@ -10,6 +10,7 @@
 | `about_note.txt` | About の小さな注(「完成品ではありません」) |
 | `welcome.txt` | 「ぷちをお迎えする」の前書き |
 | `welcome_ask.txt` | お願いすること(3つ) |
+| `tweets.txt` | トップの「#Petit_Ones」に埋め込む X の投稿の URL(1 行 1 つ) |
 | `ouendan.txt` | 応援のページ(/ouendan/)の本文。「■ 」で始まる行は小見出し |
 
 スマホからは GitHub のページで鉛筆マークを押して直し、「Commit changes」で保存すると、1〜2分で反映されます。

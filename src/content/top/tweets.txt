@@ -1,0 +1,1 @@
+# ここに X の投稿の URL を 1 行 1 つ(https://x.com/PetitOnes/status/… の形)。上から順に出る。# で始まる行は無視

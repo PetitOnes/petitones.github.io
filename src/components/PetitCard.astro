@@ -1,0 +1,12 @@
+---
+const BRAND = 'https://petitones.github.io/petit-brand';
+const { id, name, color, meta, text, poem, sig } = Astro.props;
+---
+<div class="card">
+  <img src={`${BRAND}/assets/face/${id}.svg`} alt={`${name}の顔`} width="120" height="120" loading="lazy" />
+  <h3>{name}</h3>
+  <div class="meta"><span class="swatch" style={`background:${color}`}></span>{meta}</div>
+  <p>{text}</p>
+  {poem && <div class="poem">{poem}</div>}
+  {sig && <div class="sig">— {sig}</div>}
+</div>

@@ -1,0 +1,11 @@
+---
+// 巻物の1節。英語の大見出し + 日本語の小見出し(モフリンの作り)
+const { id, en, ja, tone = false } = Astro.props;
+---
+<section id={id} class:list={['sec', { tone }]}>
+  <div class="wrap">
+    <div class="en" aria-hidden="true">{en}</div>
+    <h2 class="ja">{ja}</h2>
+    <slot />
+  </div>
+</section>

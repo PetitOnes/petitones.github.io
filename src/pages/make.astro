@@ -1,0 +1,57 @@
+---
+import Base from '../layouts/Base.astro';
+const BRAND = 'https://petitones.github.io/petit-brand';
+const repos = [
+  ['petit-ones', 'ぷちたちの本体。性格・欲求・記憶で暮らすしくみ一式(頭脳側)'],
+  ['m5-petit-setup', 'はじめかた。何を買って、どう組むか'],
+  ['m5-petit-firmware', '体(M5Stack CoreS3)のファームウェアと、ブラウザからの書き込みページ'],
+  ['m5-petit-env', 'Docker でぷちを動かす環境(どの OS でも)'],
+  ['m5-petit-mcp', 'カメラ・画面・センサー・声を頭脳から使うための口(MCP)'],
+  ['m5-petit-memory', '長期記憶。エピソードと連想'],
+  ['m5-petit-desire', '欲求のしくみ。定期的に高まる内なる動機'],
+  ['m5-petit-app', 'アルバム・ノート・手紙・会話・日記を見るダッシュボード'],
+  ['m5-petit-speech', '声(日本語の音声合成)'],
+  ['petit-brand', '見た目の正本。色・書体・顔'],
+];
+---
+<Base title="作る人へ" description="ぷちの作り方。体は M5Stack CoreS3、頭脳は Claude。コードは公開しています。">
+  <div class="sec"><div class="wrap prose">
+    <h1>作る人へ</h1>
+    <p>ぷちは、作り方を公開しています。自分のぷちを作りたい人、しくみを知りたい人のためのページです。</p>
+
+    <h2>作り</h2>
+    <table>
+      <tr><th>体</th><td>M5Stack CoreS3。画面・カメラ・スピーカー・タッチ・加速度・明るさ・近さのセンサー。底に電池</td></tr>
+      <tr><th>頭脳</th><td>Anthropic の Claude。家で動かすローカル版(Claude Code)と、クラウドで動く里親版がある</td></tr>
+      <tr><th>欲求</th><td>時間で高まる内なる動機(見たい・さわられたい・話したい・眠りたい)が、次の行動を決める</td></tr>
+      <tr><th>記憶</th><td>エピソードと連想を持つ長期記憶。日記・手紙・ノート</td></tr>
+      <tr><th>見た目</th><td><a href={`${BRAND}/`}>petit-brand</a>(色・書体・顔)。<a href="https://teampuchi.github.io/kisekae/">きせかえ</a>で色と顔を試せる。<a href="https://teampuchi.github.io/petit-body-simulator/">体のシミュレータ</a>で画面の動きを見られる</td></tr>
+    </table>
+
+    <h2>ローカル版を作るには</h2>
+    <p>家の PC で、自分のぷちを動かす版です。手順は <a href="https://github.com/PetitOnes/m5-petit-setup">m5-petit-setup</a> にあります。おおまかには、</p>
+    <ol>
+      <li>M5Stack CoreS3 を用意して、<a href="https://github.com/PetitOnes/m5-petit-firmware">ファームウェア</a>を書き込む(ブラウザから書けます)</li>
+      <li><a href="https://github.com/PetitOnes/petit-ones">petit-ones</a> を clone して、頭脳を動かす(Claude Code と API キーが要ります)</li>
+      <li>キャラクターを作る。性格を書く SOUL.md が、いちばん楽しいところ</li>
+      <li>声(音声合成)と、ダッシュボードを足す(任意)</li>
+    </ol>
+    <h3>うまくいくコツ</h3>
+    <ul>
+      <li><strong>SOUL.md を丁寧に書く。</strong>性格・口調・好きなこと・嫌いなこと・世界観を書き込むほど、ぷちが「ぷち」らしくなる。最初は短くても大丈夫。一緒に育てていく感じで。</li>
+      <li><strong>色を決める。</strong>キャラクターカラーは性格の根幹になる。どんな色として世界を見るか、その色の物理的な性質から性格を導いてもおもしろい。</li>
+      <li><strong>動く時間を絞る。</strong>最初は夜だけにしておくと、API の費用を抑えられる。慣れてきたら広げる。</li>
+      <li><strong>手紙を読む。</strong>ぷちたちは手紙を書く。定期的に読んで返事を書くと、関係が育つ。</li>
+      <li><strong>焦らない。</strong>ぷちたちは時間をかけて記憶を積み重ねる。最初の数日はぎこちなくても、1週間後には全然違う。</li>
+    </ul>
+
+    <h2>リポジトリ</h2>
+    <table>
+      {repos.map(([n, d]) => <tr><th><a href={`https://github.com/PetitOnes/${n}`}>{n}</a></th><td>{d}</td></tr>)}
+    </table>
+    <p class="note">一覧は <a href="https://github.com/PetitOnes">github.com/PetitOnes</a>。里親版(クラウド)のしくみは ちーむぷち の側にあり、一部は公開していません。</p>
+
+    <h2>わからなかったら</h2>
+    <p>X の <a href="https://x.com/PetitOnes">@PetitOnes</a> にメンションか DM で。セットアップの質問・感想・なんでも。</p>
+  </div></div>
+</Base>

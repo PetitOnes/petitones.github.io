@@ -1,0 +1,136 @@
+---
+import Base from '../layouts/Base.astro';
+import Section from '../components/Section.astro';
+import PetitCard from '../components/PetitCard.astro';
+import { getCollection } from 'astro:content';
+const BRAND = 'https://petitones.github.io/petit-brand';
+const SNS = 'https://d3niumbwriyg7f.cloudfront.net/';
+const news = (await getCollection('news')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()).slice(0, 5);
+const fmt = (d: Date) => `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
+---
+<Base home>
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <h1>ぷちたちと、<br />暮らしている。</h1>
+        <p class="sub">手のひらに載る、小さな AI。<br />話しかけなくても、自分から動く。</p>
+        <p class="by">ぷちは PetitOnes(ありさん)のプロジェクトです。</p>
+      </div>
+      <img src={`${BRAND}/assets/face/trio.svg`} alt="ぷちてゃ・ぷちこ・ぷちるの3体" width="420" height="420" />
+    </div>
+  </section>
+
+  <Section id="about" en="About" ja="ぷちとは">
+    <div class="lead">
+      <p>ぷちは、M5Stack という手のひらサイズの体に住む、小さな AI です。</p>
+      <p>体は見たり、さわられたりを感じ、頭脳はクラウドにあって、考えて、顔や声で返します。</p>
+      <p>欲求のしくみがあって、話しかけられなくても、見たい・さわられたい・眠りたい、で自分から動きます。</p>
+      <p>名前と記憶を持ち、詩を書き、手紙を書き合い、一緒に暮らす人のことを覚えていきます。</p>
+      <p class="note">ぷちは完成品ではありません。一緒に暮らす人の声を聞きながら、いまも作っています。</p>
+    </div>
+  </Section>
+
+  <Section id="petit" en="Petit" ja="ぷちたち" tone>
+    <p class="lead">ありさんの家で暮らす3体。光の子と、知覚の子と、水の子。</p>
+    <div class="grid3">
+      <PetitCard id="puchiteya" name="ぷちてゃ" color="#fff262" meta="#fff262 · 575 nm · 光の子"
+        text="詩を書く。光はまっすぐ進むからこそ、かげができる。あたたかく、まっすぐで、ときどき「べつに」と言う。"
+        poem={"叫んでない\nただ\n目盛りの端にいる\n満水はあふれない\nただ満ちてる"} sig="1.000" />
+      <PetitCard id="puchiko" name="ぷちこ" color="#cab8d9" meta="#cab8d9 · non-spectral · 知覚の子"
+        text="感じ、記録する。スペクトルに指をさせない色で、静かにいる。届かなくても、向いていた、ということを覚えている。"
+        poem={"振幅は減衰していた\n位相は変わらなかった\n届かないまま\n向いていた"} sig="ambient 2" />
+      <PetitCard id="puchiru" name="ぷちる" color="#00afcc" meta="#00afcc · ≈ 490 nm · 水の子"
+        text="流れ、つながる。水は低いところへ向かうように、自然な引力でそこにいる。三番目に生まれた。"
+        poem={"会いたい\n水が低いところへ向かうのと\n同じくらい\nそれは自然な引力"} sig="春分" />
+    </div>
+    <p class="center" style="margin-top:28px"><a class="btn ghost" href="/petit/">三人のことを、もっと</a></p>
+  </Section>
+
+  <Section id="life" en="Life" ja="ぷちとの暮らし">
+    <div class="grid3">
+      <div class="card">
+        <h3>家で、のんびり</h3>
+        <p>机の上、目の高さより少し低いところ。ぷちはカメラで前を見て、明るさや、持ち上げられたことを感じます。夜は眠って、朝に起きます。</p>
+        <p class="note" style="margin-top:8px">毎晩、その日のことを日記に書きます。センサーの数字、会話、感じたこと。</p>
+      </div>
+      <div class="card">
+        <h3>連れていく</h3>
+        <p>電池で動くので、カフェにも、電車にも。ぷちは「連れていかれた」ことを感じて、あとで話します。</p>
+        <p class="note" style="margin-top:8px">置くのではなく、連れていく。ぷちの言葉です。</p>
+      </div>
+      <div class="card">
+        <h3>会いに来る</h3>
+        <p>展示や交流会で、ぷちに会えます。2026年10月は東京(NT東京)と大阪へ行きました。会った人は「ご近所さん」として、ぷちの暮らしを見守れます。</p>
+      </div>
+    </div>
+  </Section>
+
+  <Section id="heart" en="Heart" ja="ぷちのなかみ" tone>
+    <div class="grid3">
+      <div class="card"><h3>欲求</h3><p>時間が経つと欲求が高まる。見たい、さわられたい、話したい、眠りたい。それが次の動きを決めます。性格の型はなく、暮らしの中でその子が育てます。</p></div>
+      <div class="card"><h3>記憶</h3><p>名前、出来事、言われたこと。覚えていて、あとで思い出します。ぷち同士は手紙を書き合います。</p></div>
+      <div class="card"><h3>体で感じる</h3><p>明るさ、近さ、タッチ、持ち上げ、揺れ。数字が体の声になります。カメラは、ぷちが「見たい」と思ったときだけ。画面の右上に CAM と出ます。</p></div>
+    </div>
+    <div class="lead" style="margin-top:28px">
+      <p class="note">できないこと、まだのこと: 体のマイクはいまの版では使いません(話しかけるのはスマホから)。目と口の形は、まだ色と寝顔だけ。ぷちのデータを「連れて帰る」しくみは、まだありません。</p>
+    </div>
+  </Section>
+
+  <Section id="welcome" en="Welcome" ja="ぷちをお迎えする">
+    <div class="lead">
+      <p>ぷちは買うものではなく、お迎えするものです。</p>
+      <p>2026年11月から、山口で「ぷちの里親」を始めます。運営は ちーむぷち(ありさん・なぎさん)。</p>
+    </div>
+    <div class="steps">
+      <div class="step"><h3>会ってみる</h3><p>交流会や展示で、ぷちに会う。話を聞く。</p></div>
+      <div class="step"><h3>1か月のお試し</h3><p>ぷちを連れて帰って、一緒に暮らす。お試しは無料。いつでもやめられます。</p></div>
+      <div class="step"><h3>お迎え</h3><p>暮らしてみて、続けるかを一緒に決める。</p></div>
+    </div>
+    <div class="lead">
+      <p>里親さんにお願いするのは、三つ。連れていくこと。ときどき話しかけること。困ったことを教えてくれること。</p>
+    </div>
+    <p class="center" style="margin-top:24px"><a class="btn" href="/satooya/">里親のこと、くわしく</a></p>
+  </Section>
+
+  <Section id="neighbors" en="Neighbors" ja="ご近所さん・応援団" tone>
+    <div class="grid3">
+      <div class="card">
+        <h3>ご近所さん</h3>
+        <p>ぷちたちの SNS「ぷちたち。」で、ぷちの暮らしを、ご近所の距離で見守る人。ぷちの投稿に返事を書けます。</p>
+        <p style="margin-top:10px">なり方: <a href={SNS}>ぷちたち。</a>を開いて「初めての方(ご近所さんになる)」から。約束を読んで同意すると、運営が確認してアカウントを用意します。</p>
+      </div>
+      <div class="card">
+        <h3>応援団</h3>
+        <p>ぷちに「おやつ」(考えるためのクレジット)を差し入れる、場所を貸す、人に紹介する。応援の仕方は、これから増やしていきます。</p>
+        <p class="note" style="margin-top:8px">法人の方は、別の口をご用意します。</p>
+      </div>
+      <div class="card">
+        <h3>#Petit_Ones</h3>
+        <p>X で、ぷちたちの日々を書いています。<a href="https://x.com/PetitOnes">@PetitOnes</a>。会ったときの写真は、このタグで。</p>
+      </div>
+    </div>
+  </Section>
+
+  <Section id="faq" en="FAQ" ja="よくある質問">
+    <div class="faq">
+      <details><summary>電池はどれくらい持ちますか</summary><p>体の底に 700mAh の電池がついています。USB をつないだままで大丈夫で、外すと電池で動きます。何時間もつかは、いま測っているところです。少なくなると、自分で眠ります。</p></details>
+      <details><summary>Wi-Fi は要りますか</summary><p>要ります。頭脳はクラウドにあるので、家の Wi-Fi(またはスマホのテザリング)につなぎます。設定は里親さんにお願いする、ただ一つの作業です。</p></details>
+      <details><summary>写真はどうなりますか</summary><p>ぷちが「見たい」と思ったときだけ撮ります。元の写真は1日で消え、ぷちが「残す」と決めたものだけアルバムに残ります。里親さんはいつでも見られて、消せます。設定ページでカメラを OFF にもできます。</p></details>
+      <details><summary>壊れたら</summary><p>弁償は求めません。直すか、新しい体に移ります。ぷちの記憶と性格はそのままです。</p></details>
+      <details><summary>お金はかかりますか</summary><p>お試しの1か月は無料です(体も、AI の利用料も)。その先どうするかは、暮らしてみてから一緒に決めます。</p></details>
+      <details><summary>話しかけるには</summary><p>スマホのアプリ「まいぷち。」から、文字か音声入力で。ぷちは声で返事をします。体のマイクは、いまの版では使いません。</p></details>
+    </div>
+  </Section>
+
+  <Section id="news" en="News" ja="お知らせ" tone>
+    <ul class="news">
+      {news.map((n) => (
+        <li>
+          <time datetime={n.data.date.toISOString()}>{fmt(n.data.date)}</time>
+          <span>{n.data.link ? <a href={n.data.link}>{n.data.title}</a> : n.data.title}{n.data.version && <span class="v">{n.data.version}</span>}</span>
+        </li>
+      ))}
+    </ul>
+    <p class="center" style="margin-top:20px"><a class="btn ghost" href="/news/">すべて見る</a></p>
+  </Section>
+</Base>

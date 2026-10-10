@@ -1,0 +1,16 @@
+# petitones.github.io
+
+ぷちたちのサイト **https://petitones.github.io/**。PetitOnes(ありさん)のプロジェクト。
+
+- 作り: [Astro](https://astro.build)。`src/pages/` がページ、`src/components/` が部品、`src/content/news/` がお知らせ(Markdown 1本 = 1件)
+- 色・書体・顔は [petit-brand](https://petitones.github.io/petit-brand/) の `tokens.css` と `assets/` を読む。ここに色を作らない
+- 版は `VERSION`(= `package.json` の version)。main に入ると CI が build → Pages に出し、同じ名前のタグと Release を作る
+- 中身の正しさ: 決めたこと → 事実の表 → このサイト。「まだ」は正直に書く。金額と個人の姓は書かない
+
+```sh
+npm ci
+npm run dev      # http://localhost:4321/
+npm run build    # dist/
+```
+
+直すときは PR で。トップは長い1枚(ぷちとは → ぷちたち → 暮らし → なかみ → お迎え → ご近所さん → FAQ → お知らせ)、下層は `/satooya/` `/petit/` `/make/` `/news/` の4枚。

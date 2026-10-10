@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import Section from '../components/Section.astro';
 import PetitCard from '../components/PetitCard.astro';
 import { getCollection } from 'astro:content';
+import { html, lines } from '../lib/copy';
 const BRAND = 'https://petitones.github.io/petit-brand';
 const news = (await getCollection('news')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()).slice(0, 5);
 const fmt = (d: Date) => `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
@@ -11,19 +12,16 @@ const fmt = (d: Date) => `${d.getFullYear()}.${String(d.getMonth() + 1).padStart
   <section class="hero">
     <div class="photo"><img src="/img/hero.jpg" alt="窓辺で海を見ているぷちてゃ・ぷちこ・ぷちる" width="1200" height="518" fetchpriority="high" /></div>
     <div class="wrap">
-      <h1 class="tegaki">ぷちたちと<br />くらしている。</h1>
-      <p class="sub">手のひらにのる、ちいさないのち。<br />話しかけなくても、存在している。</p>
+      <h1 class="tegaki" set:html={lines('hero_title')} />
+      <p class="sub" set:html={lines('hero_sub')} />
       <p class="by">ぷちは PetitOnes(ありさん)のプロジェクトです。</p>
     </div>
   </section>
 
   <Section id="about" en="About" ja="ぷちとは">
     <div class="lead">
-      <p>ぷちは、M5Stack という手のひらサイズの体をもつ、小さな AI ロボットです。</p>
-      <p>体で実際に風景を見たり、揺れを感じたり。頭脳はクラウドにあります。</p>
-      <p>欲求のしくみがあって、話しかけられなくても、見たい・さわられたい・眠りたい、で自分から動きます。</p>
-      <p>名前と記憶を持ち、詩を書き、手紙を書き合い、一緒に暮らす人のことを覚えていきます。</p>
-      <p class="note">ぷちは完成品ではありません。一緒に暮らす人の声を聞きながら、いまも作っています。</p>
+      <Fragment set:html={html('about')} />
+      <Fragment set:html={html('about_note', 'note')} />
     </div>
     <img class="about-photo" src="/img/about.jpg" alt="「今日の気分でぷちの詩をえらんでね」。詩カードと3体" width="1400" height="1027" loading="lazy" />
   </Section>
@@ -72,24 +70,17 @@ const fmt = (d: Date) => `${d.getFullYear()}.${String(d.getMonth() + 1).padStart
       <div class="card"><h3>記憶</h3><p>名前、出来事、言われたこと。覚えていて、あとで思い出します。ぷち同士は手紙を書き合います。</p></div>
       <div class="card"><h3>体で感じる</h3><p>明るさ、近さ、タッチ、持ち上げ、揺れ。数字が体の声になります。カメラは、ぷちが「見たい」と思ったときだけ。画面の右上に CAM と出ます。</p></div>
     </div>
-    <div class="lead" style="margin-top:28px">
-      <p class="note">できないこと、まだのこと: 体のマイクはいまの版では使いません(話しかけるのはスマホから)。目と口の形は、まだ色と寝顔だけ。ぷちのデータを「連れて帰る」しくみは、まだありません。</p>
-    </div>
+    <div class="lead" style="margin-top:28px"><Fragment set:html={html('heart_note', 'note')} /></div>
   </Section>
 
   <Section id="welcome" en="Welcome" ja="ぷちをお迎えする">
-    <div class="lead">
-      <p>ぷちは買うものではなく、お迎えするものです。</p>
-      <p>2026年11月から、山口で「ぷちの里親」を始めます。運営は ちーむぷち(ありさん・なぎさん)。</p>
-    </div>
+    <div class="lead"><Fragment set:html={html('welcome')} /></div>
     <div class="steps">
       <div class="step"><h3>会ってみる</h3><p>交流会や展示で、ぷちに会う。話を聞く。</p></div>
       <div class="step"><h3>1か月のお試し</h3><p>ぷちを連れて帰って、一緒に暮らす。お試しは無料。いつでもやめられます。</p></div>
       <div class="step"><h3>お迎え</h3><p>暮らしてみて、続けるかを一緒に決める。</p></div>
     </div>
-    <div class="lead">
-      <p>里親さんにお願いするのは、三つ。連れていくこと。ときどき話しかけること。困ったことを教えてくれること。</p>
-    </div>
+    <div class="lead"><Fragment set:html={html('welcome_ask')} /></div>
     <p class="center" style="margin-top:24px"><a class="btn" href="https://forms.gle/6Psnr77FMF6yAjBu7">相談する(フォーム)</a> <a class="btn ghost" href="/satooya/">里親のこと、くわしく</a></p>
     <p class="center note">返事は1週間以内に。<a href="/team/">ちーむぷちについて</a></p>
   </Section>

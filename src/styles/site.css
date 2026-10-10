@@ -35,7 +35,7 @@ h1,h2,h3{font-family:var(--pt-font-round);text-wrap:balance;margin:0;line-height
 .ja{font-family:var(--pt-font-round);font-weight:800;font-size:1.05rem;text-align:center;margin-top:-6px;color:var(--pt-ink)}
 .lead{text-align:center;margin:28px auto 0;max-width:30em;font-size:1.02rem}
 .lead p{margin:0 0 .6em}
-@media (max-width:600px){.lead{text-align:left}}
+@media (max-width:600px){.lead{text-align:left}.lead p br{display:none}}
 .note{font-size:.9rem;color:var(--pt-ink-soft)}
 .btn{display:inline-block;background:var(--pt-coral);color:#fff;text-decoration:none;font-family:var(--pt-font-round);font-weight:800;padding:14px 34px;border-radius:999px;font-size:1rem}
 .btn.ghost{background:transparent;color:var(--pt-coral-ink);border:2px solid var(--pt-coral-edge)}

@@ -6,7 +6,7 @@ const urls = raw.split('\n').map((l) => l.trim()).filter((l) => l && !l.startsWi
 {urls.length > 0 && (
   <div class="tweets">
     {urls.map((u) => (
-      <blockquote class="twitter-tweet" data-lang="ja" data-dnt="true"><a href={u}>{u}</a></blockquote>
+      <blockquote class="twitter-tweet" data-lang="ja" data-dnt="true"><a href={u}>@{u.split('/')[3]} の投稿を X で見る</a></blockquote>
     ))}
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   </div>

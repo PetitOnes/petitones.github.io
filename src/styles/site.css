@@ -139,4 +139,5 @@ h1,h2,h3{font-family:var(--pt-font-round);text-wrap:balance;margin:0;line-height
 .entry p{margin:0 0 6px}
 /* X の埋め込み */
 .tweets{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-top:24px;justify-items:center}
-.tweets .twitter-tweet{margin:0 !important;max-width:100%}
+.tweets blockquote.twitter-tweet{margin:0 !important;max-width:100%;width:100%;min-height:80px;border:1.5px solid var(--pt-panel);border-radius:var(--pt-radius-card);padding:16px 18px;display:grid;place-items:center;font-family:var(--pt-font-round);font-weight:700}
+.tweets blockquote.twitter-tweet a{color:var(--pt-teal-ink)}
